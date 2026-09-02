@@ -31,11 +31,13 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   color: var(--text);
   background:
     radial-gradient(circle at 70% 8%, rgba(214, 180, 111, 0.12), transparent 26rem),
@@ -851,6 +853,7 @@ button.projectCard {
   color: var(--text);
   font-size: 27px;
   line-height: 1.2;
+  word-break: keep-all;
 }
 
 .contactFinal {
@@ -1003,6 +1006,20 @@ button.projectCard {
   .galleryItem:first-child,
   .galleryItem:nth-child(4n) {
     grid-column: auto;
+  }
+}
+
+@media (max-width: 1280px) {
+  .strengthsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .strengthIntro {
+    position: static;
+  }
+
+  .strengthCards {
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
   }
 }
 
