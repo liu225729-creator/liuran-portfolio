@@ -1007,6 +1007,16 @@ button.projectCard {
 }
 
 @media (max-width: 640px) {
+  .hero {
+    background:
+      radial-gradient(circle at 72% 20%, rgba(214, 180, 111, 0.16), transparent 34%),
+      linear-gradient(135deg, #191610 0%, #11100e 48%, #070806 100%);
+  }
+
+  .heroVideo {
+    display: none;
+  }
+
   .navCta {
     min-width: 96px;
     padding-inline: 12px;

@@ -21,33 +21,33 @@ const projects = [
   {
     title: "大平层私宅客厅",
     type: "大平层私宅 / 全案设计",
-    image: "/assets/project-flat-home.png",
+    image: "/assets/project-flat-home.webp",
     details: "弧形壁炉、环抱式沙发与大面采光建立克制、松弛的生活场域。",
-    video: "/assets/flat-tour.mp4",
-    gallery: [2, 3, 4, 5, 6].map((item) => `/assets/flat-gallery-${item}.png`),
+    video: "/assets/flat-tour-lite.mp4",
+    gallery: [2, 3, 4, 5, 6].map((item) => `/assets/flat-gallery-${item}.webp`),
   },
   {
     title: "排屋私宅会客厅",
     type: "排屋私宅 / 全案设计",
-    image: "/assets/project-rowhouse.png",
+    image: "/assets/project-rowhouse.webp",
     details: "大面落地窗、天然木皮与低饱和织物建立通透、松弛的会客秩序。",
-    gallery: [1, 3, 4, 8, 9, 10, 11, 12, 13, 14, 15, 16].map((item) => `/assets/rowhouse-gallery-${item}.png`),
+    gallery: [1, 3, 4, 8, 9, 10, 11, 12, 13, 14, 15, 16].map((item) => `/assets/rowhouse-gallery-${item}.webp`),
   },
   {
     title: "杭州茶叶数字展馆",
     type: "商业空间 / 数字展陈设计",
-    image: "/assets/project-tea-museum.png",
+    image: "/assets/project-tea-museum.webp",
     details: "以茶文化叙事、沉浸式影像、展柜灯光与观展动线建立商业空间的记忆点。",
-    video: "/assets/tea-museum-tour.mp4",
+    video: "/assets/tea-museum-tour-lite.mp4",
     gallery: [
-      "/assets/project-tea-museum.png",
-      "/assets/tea-gallery-1.png",
-      "/assets/tea-gallery-2.png",
-      "/assets/tea-gallery-4.png",
-      "/assets/tea-gallery-5.png",
-      "/assets/tea-gallery-7.png",
-      "/assets/tea-gallery-8.png",
-      "/assets/tea-gallery-9.png",
+      "/assets/project-tea-museum.webp",
+      "/assets/tea-gallery-1.webp",
+      "/assets/tea-gallery-2.webp",
+      "/assets/tea-gallery-4.webp",
+      "/assets/tea-gallery-5.webp",
+      "/assets/tea-gallery-7.webp",
+      "/assets/tea-gallery-8.webp",
+      "/assets/tea-gallery-9.webp",
     ],
   },
 ];
@@ -100,8 +100,9 @@ function usePortfolioMotion(rootRef, setShowFloatingNav) {
     }
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isCompactViewport = window.matchMedia("(max-width: 768px)").matches;
 
-    if (prefersReducedMotion) {
+    if (prefersReducedMotion || isCompactViewport) {
       document.body.classList.add("motionReady");
       const openingMask = rootRef.current.querySelector(".openingMask");
       if (openingMask) openingMask.style.display = "none";
@@ -340,8 +341,8 @@ function FloatingNav({ visible }) {
 function Hero() {
   return (
     <section className="hero" id="home">
-      <video className="heroVideo" autoPlay muted loop playsInline poster="/assets/project-ai.svg">
-        <source src="/assets/hero-bg.mp4" type="video/mp4" />
+      <video className="heroVideo" autoPlay muted loop playsInline preload="metadata" poster="/assets/project-ai.svg">
+        <source src="/assets/hero-bg-lite.mp4" type="video/mp4" media="(min-width: 769px)" />
       </video>
       <div className="heroShade" />
       <nav className="nav">
@@ -378,7 +379,7 @@ function Profile() {
       <MoltenMetalBackground />
       <div className="sectionInner profileGrid">
         <div className="portraitPanel">
-          <img src="/assets/liuran-profile.jpg" alt="刘然在设计活动现场分享" />
+          <img src="/assets/liuran-profile.jpg" alt="刘然在设计活动现场分享" loading="lazy" decoding="async" />
         </div>
         <div className="profileContent">
           <p className="motionTitle" aria-hidden="true">EXPERIENCE</p>
@@ -453,7 +454,7 @@ function SelectedProjects() {
                 type={project.gallery ? "button" : undefined}
                 onClick={project.gallery ? () => setActiveProject(project) : undefined}
               >
-                <img src={project.image} alt={project.title} />
+                <img src={project.image} alt={project.title} loading="lazy" decoding="async" />
                 <div className="projectInfo">
                   <span>{project.type}</span>
                   <h3>{project.title}</h3>
@@ -484,7 +485,7 @@ function ProjectGallery({ project, onClose }) {
       </div>
       {project.video ? (
         <div className="galleryVideo">
-          <video controls muted playsInline poster={project.image}>
+          <video controls muted playsInline preload="none" poster={project.image}>
             <source src={project.video} type="video/mp4" />
           </video>
         </div>
@@ -492,7 +493,7 @@ function ProjectGallery({ project, onClose }) {
       <div className="galleryGrid">
         {project.gallery.map((image, index) => (
           <figure className="galleryItem" key={image}>
-            <img src={image} alt={`${project.title}作品图 ${index + 1}`} />
+            <img src={image} alt={`${project.title}作品图 ${index + 1}`} loading="lazy" decoding="async" />
           </figure>
         ))}
       </div>
@@ -565,7 +566,9 @@ function MoltenMetalBackground() {
     const canvas = canvasRef.current;
     if (!canvas) return undefined;
 
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduceMotion =
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      window.matchMedia("(max-width: 768px)").matches;
     const ctx = canvas.getContext("2d", { alpha: true });
     let width = 0;
     let height = 0;
