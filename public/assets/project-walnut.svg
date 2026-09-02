@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="980" viewBox="0 0 1200 980" role="img" aria-label="深胡桃会客厅">
+  <defs>
+    <linearGradient id="room" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#2c241d"/>
+      <stop offset=".58" stop-color="#11100e"/>
+      <stop offset="1" stop-color="#030303"/>
+    </linearGradient>
+    <linearGradient id="sofa" x1="0" x2="1">
+      <stop offset="0" stop-color="#4a3529"/>
+      <stop offset="1" stop-color="#1f1712"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="980" fill="url(#room)"/>
+  <path d="M120 148h960v460H120z" fill="#16110d"/>
+  <path d="M182 210h286v348H182z" fill="#5a4636" opacity=".82"/>
+  <path d="M514 210h504v348H514z" fill="#241911"/>
+  <circle cx="768" cy="318" r="90" fill="#d6b46f" opacity=".18"/>
+  <path d="M168 650h838c42 0 76 34 76 76v94H92v-94c0-42 34-76 76-76z" fill="url(#sofa)"/>
+  <path d="M155 822h902v58H155z" fill="#0a0908"/>
+  <path d="M92 608h986" stroke="#d6b46f" stroke-width="3" opacity=".28"/>
+  <path d="M520 694h124" stroke="#d6b46f" stroke-width="8" opacity=".5"/>
+</svg>

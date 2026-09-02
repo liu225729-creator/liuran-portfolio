@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="960" viewBox="0 0 620 960" role="img" aria-label="设计师人物剪影">
+  <defs>
+    <linearGradient id="coat" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#464744"/>
+      <stop offset=".55" stop-color="#1e1f1e"/>
+      <stop offset="1" stop-color="#0b0c0c"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#d4c0a4"/>
+      <stop offset="1" stop-color="#8f765f"/>
+    </linearGradient>
+  </defs>
+  <rect width="620" height="960" fill="none"/>
+  <ellipse cx="315" cy="908" rx="155" ry="20" fill="#000" opacity=".16"/>
+  <path d="M277 150c28-22 84-12 99 22 15 35-3 86-38 100-31 12-70-1-86-30-17-31-4-69 25-92z" fill="url(#skin)"/>
+  <path d="M243 162c20-62 118-78 165-22 18 22 21 47 15 76-43-27-93-39-165-26z" fill="#121212"/>
+  <path d="M230 276c64-45 139-49 211-13 20 156 24 314-17 464-70 47-167 47-249 0 13-173 25-318 55-451z" fill="url(#coat)"/>
+  <path d="M214 305c-44 78-78 182-104 310 32 22 67 25 103 10 28-101 48-205 56-312z" fill="#222423"/>
+  <path d="M444 287c48 75 70 179 78 312-30 20-63 25-99 12-20-111-32-217-36-318z" fill="#171919"/>
+  <path d="M232 726l-48 172h64l76-168z" fill="#171717"/>
+  <path d="M377 728l28 170h66l-6-180z" fill="#111"/>
+  <path d="M171 894h104c14 0 26 12 26 26H159c0-14 3-22 12-26z" fill="#050505"/>
+  <path d="M390 894h112c13 0 24 11 24 25H385c0-14 1-21 5-25z" fill="#050505"/>
+  <path d="M280 282c29 106 33 244 13 415" stroke="#d8d2c8" stroke-width="3" opacity=".16"/>
+  <path d="M370 288c-4 142-1 275 24 401" stroke="#000" stroke-width="4" opacity=".28"/>
+  <path d="M254 146c-32 9-56 5-77-13 16-34 71-57 126-43 56 14 90 51 95 96-41-33-88-47-144-40z" fill="#0b0b0b"/>
+</svg>

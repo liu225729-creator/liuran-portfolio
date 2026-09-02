@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1125" viewBox="0 0 900 1125" role="img" aria-label="刘然人物视觉">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#272721"/>
+      <stop offset=".55" stop-color="#111413"/>
+      <stop offset="1" stop-color="#050607"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#d8c2a4"/>
+      <stop offset="1" stop-color="#9f866b"/>
+    </linearGradient>
+    <linearGradient id="cloth" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#202322"/>
+      <stop offset="1" stop-color="#090a0a"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1125" fill="url(#bg)"/>
+  <path d="M80 930c150-142 280-212 390-210 118 2 235 74 350 216v189H80z" fill="url(#cloth)"/>
+  <path d="M319 449c-26 17-41 46-37 80 8 67 62 121 127 134 65 12 136-18 168-75 23-40 24-90 3-130-28-54-94-85-157-74-38 7-73 28-104 65z" fill="url(#skin)"/>
+  <path d="M287 424c42-92 168-136 258-79 74 47 93 126 63 198-19-51-53-88-101-112-73-36-148-38-220-7z" fill="#151515"/>
+  <path d="M360 654h164l17 95c-62 39-126 39-195 0z" fill="#b99d7e"/>
+  <path d="M247 812c106 66 257 82 391-1l74 314H189z" fill="#111313"/>
+  <path d="M182 159h536v86H182z" fill="#d6b46f" opacity=".12"/>
+  <path d="M152 269h596" stroke="#d6b46f" stroke-width="2" opacity=".34"/>
+  <path d="M148 1013h604" stroke="#f4f0e8" stroke-width="1" opacity=".12"/>
+  <circle cx="710" cy="170" r="92" fill="#d6b46f" opacity=".08"/>
+</svg>

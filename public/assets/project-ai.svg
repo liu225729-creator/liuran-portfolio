@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="AI品牌空间系统">
+  <defs>
+    <linearGradient id="base" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#151b1d"/>
+      <stop offset=".5" stop-color="#080a0b"/>
+      <stop offset="1" stop-color="#1d1710"/>
+    </linearGradient>
+    <radialGradient id="light" cx=".72" cy=".28" r=".52">
+      <stop offset="0" stop-color="#d6b46f" stop-opacity=".48"/>
+      <stop offset=".45" stop-color="#d6b46f" stop-opacity=".1"/>
+      <stop offset="1" stop-color="#d6b46f" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#base)"/>
+  <rect width="1600" height="900" fill="url(#light)"/>
+  <path d="M144 164h520v572H144z" fill="#111414" stroke="#d6b46f" stroke-opacity=".24"/>
+  <path d="M802 112h552v260H802z" fill="#14100c" stroke="#f4f0e8" stroke-opacity=".12"/>
+  <path d="M802 418h552v318H802z" fill="#0e1111" stroke="#f4f0e8" stroke-opacity=".12"/>
+  <path d="M232 268h344M232 356h248M232 444h392M232 532h288" stroke="#f4f0e8" stroke-opacity=".18" stroke-width="18"/>
+  <path d="M884 205h354M884 520h302M884 598h390" stroke="#d6b46f" stroke-opacity=".34" stroke-width="12"/>
+  <path d="M704 274l88-32M704 504l88 42" stroke="#d6b46f" stroke-opacity=".5" stroke-width="3"/>
+  <circle cx="704" cy="274" r="12" fill="#d6b46f"/>
+  <circle cx="704" cy="504" r="12" fill="#d6b46f"/>
+  <circle cx="792" cy="242" r="8" fill="#d6b46f"/>
+  <circle cx="792" cy="546" r="8" fill="#d6b46f"/>
+</svg>

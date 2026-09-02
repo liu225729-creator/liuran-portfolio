@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="920" viewBox="0 0 1920 920" role="img" aria-label="黑白建筑仰视影像">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f4f4f1"/>
+      <stop offset=".55" stop-color="#d8d8d5"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+    <linearGradient id="dark" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#3a3a38"/>
+      <stop offset=".52" stop-color="#111"/>
+      <stop offset="1" stop-color="#020202"/>
+    </linearGradient>
+    <linearGradient id="mid" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#767673"/>
+      <stop offset=".55" stop-color="#232323"/>
+      <stop offset="1" stop-color="#080808"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".92" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 .18"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="1920" height="920" fill="#050505"/>
+  <path d="M0 0h1920v920H0z" fill="url(#sky)"/>
+  <path d="M584 0h596L980 920z" fill="#f7f7f4"/>
+  <path d="M0 0h514L836 920H0z" fill="url(#dark)"/>
+  <path d="M1474 0h446v920h-770z" fill="url(#dark)"/>
+  <path d="M760 0h320L956 366 852 522z" fill="url(#mid)" opacity=".86"/>
+  <path d="M1096 346l355 574H1010z" fill="url(#mid)"/>
+  <path d="M248 0h244l272 778H406z" fill="#e8e8e4" opacity=".68"/>
+  <path d="M1284 0h222l-324 568z" fill="#e8e8e4" opacity=".58"/>
+  <g opacity=".55" stroke="#f5f5f2" stroke-width="7">
+    <path d="M96 64l428 856M162 0l430 920M238 0l430 920M322 0l414 920"/>
+    <path d="M1526 0l-418 920M1606 0l-402 920M1696 0l-372 920M1800 0l-332 920"/>
+  </g>
+  <g opacity=".42" stroke="#0c0c0c" stroke-width="5">
+    <path d="M412 0l268 920M480 0l254 920M548 0l230 920"/>
+    <path d="M1238 0l-242 920M1320 0l-230 920M1400 0l-210 920"/>
+  </g>
+  <g opacity=".3" fill="#f1f1ee">
+    <rect x="188" y="142" width="42" height="16"/>
+    <rect x="224" y="252" width="64" height="18"/>
+    <rect x="294" y="394" width="90" height="18"/>
+    <rect x="1518" y="170" width="98" height="17"/>
+    <rect x="1450" y="324" width="74" height="17"/>
+    <rect x="1364" y="486" width="110" height="18"/>
+  </g>
+  <rect width="1920" height="920" filter="url(#grain)"/>
+</svg>

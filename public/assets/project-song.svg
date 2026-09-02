@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="980" viewBox="0 0 1400 980" role="img" aria-label="宋式留白私宅">
+  <defs>
+    <linearGradient id="wall" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#d8d0c0"/>
+      <stop offset=".55" stop-color="#9c9589"/>
+      <stop offset="1" stop-color="#2a2925"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0" x2="1">
+      <stop offset="0" stop-color="#4f3b2c"/>
+      <stop offset="1" stop-color="#17120e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="980" fill="#0a0b0b"/>
+  <path d="M110 110h1180v650H110z" fill="url(#wall)"/>
+  <path d="M110 760h1180v140H110z" fill="#191612"/>
+  <path d="M178 190h356v520H178z" fill="#e7e0d2" opacity=".72"/>
+  <path d="M621 184h530v548H621z" fill="url(#wood)"/>
+  <path d="M680 243h412v350H680z" fill="#0f1010"/>
+  <path d="M735 612h305v58H735z" fill="#d6b46f" opacity=".28"/>
+  <path d="M178 720h940" stroke="#f4f0e8" stroke-width="2" opacity=".18"/>
+  <path d="M248 800h740" stroke="#d6b46f" stroke-width="4" opacity=".26"/>
+</svg>
