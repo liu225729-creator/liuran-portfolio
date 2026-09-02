@@ -1037,10 +1037,6 @@ button.projectCard {
       linear-gradient(135deg, #191610 0%, #11100e 48%, #070806 100%);
   }
 
-  .heroVideo {
-    display: none;
-  }
-
   .navCta {
     min-width: 96px;
     padding-inline: 12px;

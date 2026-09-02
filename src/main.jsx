@@ -342,7 +342,7 @@ function Hero() {
   return (
     <section className="hero" id="home">
       <video className="heroVideo" autoPlay muted loop playsInline preload="metadata" poster="/assets/project-ai.svg">
-        <source src="/assets/hero-bg-lite.mp4" type="video/mp4" media="(min-width: 769px)" />
+        <source src="/assets/hero-bg-lite.mp4" type="video/mp4" />
       </video>
       <div className="heroShade" />
       <nav className="nav">
