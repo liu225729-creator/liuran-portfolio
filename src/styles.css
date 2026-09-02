@@ -1006,6 +1006,30 @@ button.projectCard {
   }
 }
 
+@media (max-width: 1180px) {
+  .projectCard1,
+  .projectCard2,
+  .projectCard3 {
+    grid-column: span 12;
+  }
+
+  .projectCard,
+  .projectCard3 {
+    min-height: 520px;
+  }
+
+  .projectInfo h3 {
+    max-width: 760px;
+    font-size: clamp(30px, 6vw, 56px);
+    line-height: 1.16;
+    word-break: keep-all;
+  }
+
+  .projectInfo p {
+    max-width: 760px;
+  }
+}
+
 @media (max-width: 640px) {
   .hero {
     background:
@@ -1056,6 +1080,11 @@ button.projectCard {
 
   .projectInfo {
     padding: 24px;
+  }
+
+  .projectInfo h3 {
+    font-size: clamp(28px, 11vw, 42px);
+    line-height: 1.22;
   }
 
   .galleryOverlay {
