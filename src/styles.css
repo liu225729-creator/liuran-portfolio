@@ -136,9 +136,24 @@ main {
     radial-gradient(circle at 22% 34%, rgba(214, 180, 111, 0.18), transparent 28%),
     radial-gradient(circle at 78% 58%, rgba(80, 152, 148, 0.12), transparent 24%),
     linear-gradient(135deg, #181511 0%, #0d0c0a 62%, #1f1a12 100%);
+  opacity: 0.74;
   filter: blur(8px);
   transform: translate3d(0, 0, 0) scale(1.04);
   animation: heroFallbackDrift 16s ease-in-out infinite alternate;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(214, 180, 111, 0.11) 47%, transparent 66%),
+    repeating-linear-gradient(90deg, transparent 0 78px, rgba(214, 180, 111, 0.1) 79px, transparent 80px);
+  opacity: 0.18;
+  transform: translate3d(-18%, 0, 0);
+  animation: heroLightSweep 9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
 }
 
 .heroVideo,
@@ -156,6 +171,11 @@ main {
   filter: saturate(0.88) contrast(1.06);
 }
 
+.hero.isVideoPlaying::before,
+.hero.isVideoPlaying::after {
+  opacity: 0.16;
+}
+
 .heroShade {
   z-index: 1;
   background:
@@ -170,6 +190,17 @@ main {
 
   100% {
     transform: translate3d(2%, 1%, 0) scale(1.08);
+  }
+}
+
+@keyframes heroLightSweep {
+  0% {
+    transform: translate3d(-28%, 0, 0);
+  }
+
+  48%,
+  100% {
+    transform: translate3d(28%, 0, 0);
   }
 }
 

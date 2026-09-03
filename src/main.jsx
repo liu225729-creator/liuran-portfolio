@@ -358,9 +358,20 @@ function Hero() {
     video.muted = true;
     video.defaultMuted = true;
     video.playsInline = true;
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
+    video.setAttribute("webkit-playsinline", "");
+    video.setAttribute("x5-playsinline", "");
+    video.setAttribute("x5-video-player-type", "h5-page");
 
     const playVideo = () => {
-      video.play().catch(() => {});
+      video.play().catch(() => {
+        video.closest(".hero")?.classList.add("isVideoBlocked");
+      });
+    };
+    const markPlaying = () => {
+      video.closest(".hero")?.classList.add("isVideoPlaying");
+      video.closest(".hero")?.classList.remove("isVideoBlocked");
     };
 
     if (video.readyState >= 2) {
@@ -369,10 +380,12 @@ function Hero() {
       video.addEventListener("canplay", playVideo, { once: true });
     }
 
+    video.addEventListener("playing", markPlaying);
     document.addEventListener("touchstart", playVideo, { once: true, passive: true });
 
     return () => {
       video.removeEventListener("canplay", playVideo);
+      video.removeEventListener("playing", markPlaying);
       document.removeEventListener("touchstart", playVideo);
     };
   }, []);
@@ -392,6 +405,7 @@ function Hero() {
         x5-video-player-type="h5-page"
         aria-hidden="true"
       >
+        <source src="/assets/hero-bg-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
         <source src="/assets/hero-bg-lite.mp4" type="video/mp4" />
       </video>
       <div className="heroShade" />
