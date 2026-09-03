@@ -349,10 +349,13 @@ h1 {
 }
 
 .heroTitle {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.02em;
+  display: block;
+  flex-wrap: nowrap;
+  gap: 0;
   overflow: hidden;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
 }
 
 .heroTitleChar {
@@ -1133,7 +1136,13 @@ button.projectCard {
   }
 
   h1 {
-    font-size: clamp(76px, 26vw, 116px);
+    font-size: clamp(48px, 16.5vw, 72px);
+    line-height: 0.96;
+  }
+
+  .heroTitle {
+    width: max-content;
+    max-width: 100%;
   }
 
   .heroCopy {
