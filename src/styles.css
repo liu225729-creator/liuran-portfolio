@@ -1032,16 +1032,15 @@ button.projectCard {
   }
 
   .heroVideo {
-    display: block;
-    opacity: 0.88;
+    display: none;
   }
 
   .hero::before {
     inset: 0;
     background:
       linear-gradient(90deg, rgba(17, 16, 14, 0.58), rgba(17, 16, 14, 0.28)),
-      url("/assets/hero-poster-mobile.webp") center / cover no-repeat;
-    opacity: 0.5;
+      url("/assets/hero-bg-mobile-anim.webp") center / cover no-repeat;
+    opacity: 0.62;
     filter: saturate(0.86) contrast(1.08) brightness(0.82);
     transform: none;
     animation: none;
