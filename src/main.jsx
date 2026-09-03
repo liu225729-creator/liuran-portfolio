@@ -399,11 +399,17 @@ function Hero() {
         muted
         loop
         playsInline
+        disablePictureInPicture
         preload="auto"
+        poster="/assets/hero-poster-mobile.webp"
         webkit-playsinline="true"
+        x5-playsinline="true"
+        x5-video-player-type="h5"
+        x5-video-player-fullscreen="false"
         aria-hidden="true"
       >
-        <source src="/assets/hero-bg-lite.mp4" type="video/mp4" />
+        <source src="/assets/hero-bg-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
+        <source src="/assets/hero-bg-lite.mp4" type="video/mp4" media="(min-width: 769px)" />
       </video>
       <div className="heroShade" />
       <nav className="nav">
