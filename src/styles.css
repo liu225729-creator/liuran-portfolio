@@ -127,6 +127,20 @@ main {
   background: var(--bg);
 }
 
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -18%;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 22% 34%, rgba(214, 180, 111, 0.18), transparent 28%),
+    radial-gradient(circle at 78% 58%, rgba(80, 152, 148, 0.12), transparent 24%),
+    linear-gradient(135deg, #181511 0%, #0d0c0a 62%, #1f1a12 100%);
+  filter: blur(8px);
+  transform: translate3d(0, 0, 0) scale(1.04);
+  animation: heroFallbackDrift 16s ease-in-out infinite alternate;
+}
+
 .heroVideo,
 .heroShade {
   position: absolute;
@@ -136,6 +150,7 @@ main {
 }
 
 .heroVideo {
+  z-index: 0;
   object-fit: cover;
   opacity: 0.92;
   filter: saturate(0.88) contrast(1.06);
@@ -146,6 +161,16 @@ main {
   background:
     linear-gradient(90deg, rgba(17, 16, 14, 0.74) 0%, rgba(17, 16, 14, 0.38) 44%, rgba(17, 16, 14, 0.1) 100%),
     linear-gradient(180deg, rgba(17, 16, 14, 0.06) 0%, rgba(17, 16, 14, 0.54) 100%);
+}
+
+@keyframes heroFallbackDrift {
+  0% {
+    transform: translate3d(-2%, -1%, 0) scale(1.04);
+  }
+
+  100% {
+    transform: translate3d(2%, 1%, 0) scale(1.08);
+  }
 }
 
 .nav {
@@ -964,6 +989,12 @@ button.projectCard {
     transition-duration: 0.001ms !important;
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .openingMask {
+    display: none;
   }
 }
 

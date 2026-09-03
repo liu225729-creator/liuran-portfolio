@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./styles.css";
 
 const contact = {
@@ -118,9 +116,17 @@ function usePortfolioMotion(rootRef, setShowFloatingNav) {
       };
     }
 
-    gsap.registerPlugin(ScrollTrigger);
+    let ctx;
+    let disposed = false;
 
-    const ctx = gsap.context(() => {
+    const setupMotion = async () => {
+      const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([import("gsap"), import("gsap/ScrollTrigger")]);
+
+      if (disposed || !rootRef.current) return;
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      ctx = gsap.context(() => {
       document.body.classList.add("motionReady");
 
       ScrollTrigger.create({
@@ -287,11 +293,15 @@ function usePortfolioMotion(rootRef, setShowFloatingNav) {
           },
         );
       });
-    }, rootRef);
+      }, rootRef);
+    };
+
+    setupMotion();
 
     return () => {
+      disposed = true;
       document.body.classList.remove("motionReady");
-      ctx.revert();
+      if (ctx) ctx.revert();
     };
   }, [rootRef, setShowFloatingNav]);
 }
@@ -339,9 +349,49 @@ function FloatingNav({ visible }) {
 }
 
 function Hero() {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return undefined;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+
+    const playVideo = () => {
+      video.play().catch(() => {});
+    };
+
+    if (video.readyState >= 2) {
+      playVideo();
+    } else {
+      video.addEventListener("canplay", playVideo, { once: true });
+    }
+
+    document.addEventListener("touchstart", playVideo, { once: true, passive: true });
+
+    return () => {
+      video.removeEventListener("canplay", playVideo);
+      document.removeEventListener("touchstart", playVideo);
+    };
+  }, []);
+
   return (
     <section className="hero" id="home">
-      <video className="heroVideo" autoPlay muted loop playsInline preload="metadata" poster="/assets/project-ai.svg">
+      <video
+        className="heroVideo"
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        webkit-playsinline="true"
+        x5-playsinline="true"
+        x5-video-player-type="h5-page"
+        aria-hidden="true"
+      >
         <source src="/assets/hero-bg-lite.mp4" type="video/mp4" />
       </video>
       <div className="heroShade" />
@@ -454,7 +504,13 @@ function SelectedProjects() {
                 type={project.gallery ? "button" : undefined}
                 onClick={project.gallery ? () => setActiveProject(project) : undefined}
               >
-                <img src={project.image} alt={project.title} loading="lazy" decoding="async" />
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority={index === 0 ? "high" : "auto"}
+                />
                 <div className="projectInfo">
                   <span>{project.type}</span>
                   <h3>{project.title}</h3>
