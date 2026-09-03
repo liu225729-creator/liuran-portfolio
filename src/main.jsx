@@ -522,7 +522,7 @@ function SelectedProjects() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  loading="eager"
+                  loading={index === 0 ? "eager" : "lazy"}
                   decoding="async"
                   fetchPriority={index === 0 ? "high" : "auto"}
                 />
