@@ -352,6 +352,8 @@ function Hero() {
   const videoRef = useRef(null);
 
   useEffect(() => {
+    if (window.matchMedia("(max-width: 768px)").matches) return undefined;
+
     const video = videoRef.current;
     if (!video) return undefined;
 
@@ -361,8 +363,6 @@ function Hero() {
     video.setAttribute("muted", "");
     video.setAttribute("playsinline", "");
     video.setAttribute("webkit-playsinline", "");
-    video.setAttribute("x5-playsinline", "");
-    video.setAttribute("x5-video-player-type", "h5-page");
 
     const playVideo = () => {
       video.play().catch(() => {
@@ -401,11 +401,8 @@ function Hero() {
         playsInline
         preload="auto"
         webkit-playsinline="true"
-        x5-playsinline="true"
-        x5-video-player-type="h5-page"
         aria-hidden="true"
       >
-        <source src="/assets/hero-bg-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
         <source src="/assets/hero-bg-lite.mp4" type="video/mp4" />
       </video>
       <div className="heroShade" />
