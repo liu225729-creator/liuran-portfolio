@@ -716,9 +716,10 @@ button.projectCard {
   grid-column: span 5;
 }
 
-.projectCard3 {
-  grid-column: span 12;
-  min-height: 620px;
+.projectCard3,
+.projectCard4 {
+  grid-column: span 6;
+  min-height: 560px;
 }
 
 .projectCard img {
@@ -1091,7 +1092,8 @@ button.projectCard {
 
   .projectCard1,
   .projectCard2,
-  .projectCard3 {
+  .projectCard3,
+  .projectCard4 {
     grid-column: span 12;
   }
 
@@ -1165,7 +1167,8 @@ button.projectCard {
   }
 
   .projectCard,
-  .projectCard3 {
+  .projectCard3,
+  .projectCard4 {
     min-height: 440px;
   }
 

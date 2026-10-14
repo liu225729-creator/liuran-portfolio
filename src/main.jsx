@@ -17,6 +17,19 @@ const metrics = [
 
 const projects = [
   {
+    title: "125㎡套房全案",
+    type: "套房私宅 / 全案设计",
+    image: "/assets/project-suite125-cover.webp",
+    details: "以开放客餐厅、温润木饰面、柔和自然光与收纳系统建立克制、通透的日常居住秩序。",
+    gallery: [
+      "/assets/project-suite125-cover.webp",
+      "/assets/suite125-gallery-1.webp",
+      "/assets/suite125-gallery-2.webp",
+      "/assets/suite125-gallery-3.webp",
+      "/assets/suite125-gallery-4.webp",
+    ],
+  },
+  {
     title: "大平层私宅客厅",
     type: "大平层私宅 / 全案设计",
     image: "/assets/project-flat-home.webp",
