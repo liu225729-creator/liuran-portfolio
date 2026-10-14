@@ -1032,6 +1032,10 @@ button.projectCard {
     display: none;
   }
 
+  .floatingNav {
+    display: none;
+  }
+
   .heroVideo {
     display: block;
     opacity: 0.62;
