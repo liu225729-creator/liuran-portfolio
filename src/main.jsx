@@ -35,14 +35,17 @@ const projects = [
     image: "/assets/project-flat-home.webp",
     details: "弧形壁炉、环抱式沙发与大面采光建立克制、松弛的生活场域。",
     video: "/assets/flat-tour-lite.mp4",
-    gallery: [2, 3, 4, 5, 6].map((item) => `/assets/flat-gallery-${item}.webp`),
+    gallery: ["/assets/project-flat-home.webp", ...[2, 3, 4, 5, 6].map((item) => `/assets/flat-gallery-${item}.webp`)],
   },
   {
     title: "排屋私宅会客厅",
     type: "排屋私宅 / 全案设计",
     image: "/assets/project-rowhouse.webp",
     details: "大面落地窗、天然木皮与低饱和织物建立通透、松弛的会客秩序。",
-    gallery: [1, 3, 4, 8, 9, 10, 11, 12, 13, 14, 15, 16].map((item) => `/assets/rowhouse-gallery-${item}.webp`),
+    gallery: [
+      "/assets/project-rowhouse.webp",
+      ...[1, 3, 4, 8, 9, 10, 11, 12, 13, 14, 15, 16].map((item) => `/assets/rowhouse-gallery-${item}.webp`),
+    ],
   },
   {
     title: "杭州茶叶数字展馆",
@@ -554,6 +557,25 @@ function SelectedProjects() {
 }
 
 function ProjectGallery({ project, onClose }) {
+  const [visibleCount, setVisibleCount] = useState(1);
+
+  useEffect(() => {
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const targetCount = project.gallery.length;
+
+    setVisibleCount(isMobile ? 1 : targetCount);
+    if (!isMobile) return undefined;
+
+    const timers = [];
+    for (let index = 2; index <= targetCount; index += 1) {
+      timers.push(window.setTimeout(() => setVisibleCount(index), 300 * (index - 1)));
+    }
+
+    return () => timers.forEach((timer) => window.clearTimeout(timer));
+  }, [project]);
+
+  const visibleGallery = project.gallery.slice(0, visibleCount);
+
   return (
     <div className="galleryOverlay" role="dialog" aria-modal="true" aria-label={`${project.title}完整案例`}>
       <div className="galleryTop">
@@ -573,9 +595,15 @@ function ProjectGallery({ project, onClose }) {
         </div>
       ) : null}
       <div className="galleryGrid">
-        {project.gallery.map((image, index) => (
+        {visibleGallery.map((image, index) => (
           <figure className="galleryItem" key={image}>
-            <img src={image} alt={`${project.title}作品图 ${index + 1}`} loading="lazy" decoding="async" />
+            <img
+              src={image}
+              alt={`${project.title}作品图 ${index + 1}`}
+              loading={index === 0 ? "eager" : "lazy"}
+              decoding="async"
+              fetchPriority={index === 0 ? "high" : "auto"}
+            />
           </figure>
         ))}
       </div>
