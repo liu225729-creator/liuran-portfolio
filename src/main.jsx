@@ -365,8 +365,6 @@ function Hero() {
   const videoRef = useRef(null);
 
   useEffect(() => {
-    if (window.matchMedia("(max-width: 768px)").matches) return undefined;
-
     const video = videoRef.current;
     if (!video) return undefined;
 
